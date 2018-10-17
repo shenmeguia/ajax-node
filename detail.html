@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+<div class="box2">
+	<ul>
+		<li>
+			<span>编号：</span>
+			<span id="num"></span>
+		</li>
+		<li>
+			<span>姓名：</span>
+			<span id="curName"></span>
+		</li>
+		<li>
+			<span>性别：</span>
+			<span id="sex"></span>
+		</li>
+		<li>
+			<span>分数：</span>
+			<span id="score"></span>
+		</li>
+	</ul>
+</div>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript">
+//给字符串原型添加获取URL地址？后面的参数(对象形式返回结果)
+	String.prototype.queryURLParameter = function () {
+		var obj = {},
+			reg = /([^?=&#]+)=([^?=&#]+)/g;
+		this.replace(reg,function () {
+			var key = arguments[1],
+				val = arguments[2];
+			obj[key] = val;
+		});
+		return obj;
+	};
+
+	var urlObj = window.location.href.queryURLParameter(),
+		currentId = urlObj.id,
+		data = null,
+		num = document.getElementById('num'),
+		curName = document.getElementById('curName'),
+		sex = document.getElementById('sex'),
+		score = document.getElementById('score');
+	ajax({
+		url:'/getInfo?id=' + currentId,
+		success:function (jsonData) {
+			if(jsonData && jsonData.code == 0) {
+				data = jsonData.data;
+				num.innerHTML = data.id;
+				curName.innerHTML = data.name;
+				sex.innerHTML = data.sex === 0 ? "男" : "女";
+				score.innerHTML = data.score;
+			}
+		}
+	});
+	
+</script>
+</body>
+</html>

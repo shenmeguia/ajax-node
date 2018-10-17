@@ -1,0 +1,103 @@
+*{
+	margin:0;
+	padding:0;
+}
+ul,li{
+	list-style:none;
+}
+input{
+	outline:none;
+}
+html,body{
+	font-size:14px;
+	width:100%;
+	overflow-x:hidden;
+	-webkit-user-select:none;
+	user-select:none;
+}
+.box1{
+	width:800px;
+	margin:30px auto;
+	padding:20px;
+	border:2px solid orange;
+	text-align:center;
+}
+.box1 h2{
+	height:35px;
+	line-height: 35px;
+	background:orange;
+	text-align:center;
+	color:white;
+}
+.box1 h2 span,.box1 .content li span{
+	width:200px;
+	float:left;
+}
+.box1 .content li{
+	height:30px;
+	line-height: 30px;
+	text-align:center;
+	cursor:pointer;
+}
+.box1 .content{
+	height:300px;
+}
+.box1 .content li:nth-of-type(even){
+	background:#eee;
+}
+.box1 .content li:hover{
+	background:rgba(255,165,0,0.5);;
+}
+.box1 .foot{
+	margin-top:20px;
+	display:inline-block;
+	height:24px;
+	line-height:24px;
+	-webkit-user-select:none;
+	user-select:none;
+}
+.box1 .foot span,.box1 .foot input,.box1 .foot ul li{
+	float:left;
+	width:50px;
+	border:1px solid orange;
+	margin:0 3px;
+	cursor:pointer;
+	text-align:center;
+}
+.box1 .foot ul{
+	float:left;
+}
+.box1 .foot ul li{
+	width:30px;
+}
+.box1 .foot ul li.current{
+	background:orange;
+	color:white;
+}
+.box1 .foot input{
+	text-align:center;
+	height:24px;
+	line-height:24px;
+}
+
+.box2{
+	width:400px;
+	border:2px dashed orange;
+	height:200px;
+	position:fixed;
+	left:50%;
+	top:50%;
+	margin:-100px 0 0-200px;
+}
+.box2 ul li{
+	height:50px;
+	line-height:50px;
+}
+.box2 ul li:nth-of-type(even) {
+	background: #eee
+}
+.box2 ul li span{
+	width:100px;
+	text-align:center;
+	display:inline-block;
+}
